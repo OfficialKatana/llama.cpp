@@ -32,6 +32,8 @@ android {
                 arguments += "-DGGML_BACKEND_DL=ON"
                 arguments += "-DGGML_CPU_ALL_VARIANTS=ON"
                 arguments += "-DGGML_LLAMAFILE=OFF"
+                arguments += "-DHTTPS_PROXY=http://127.0.0.1:7888"
+                arguments += "-DHTTP_PROXY=http://127.0.0.1:7888"
             }
         }
         aarMetadata {
@@ -41,18 +43,18 @@ android {
     externalNativeBuild {
         cmake {
             path("src/main/cpp/CMakeLists.txt")
-            version = "3.31.6"
+            version = "4.1.2"
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlin {
-        jvmToolchain(17)
+        jvmToolchain(21)
 
         compileOptions {
-            targetCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_21
         }
     }
 
